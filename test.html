@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form Fields</title>
+    <style>
+        .field-container {
+            margin-bottom: 10px;
+        }
+        .remove-button {
+            margin-left: 10px;
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form id="dynamicForm">
+        <div id="fieldContainer"></div>
+        <button type="button" id="addButton">Add Field</button>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+    
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    const fieldContainer = document.getElementById('fieldContainer');
+    const addButton = document.getElementById('addButton');
+
+    addButton.addEventListener('click', function() {
+        addField();
+    });
+
+    function addField() {
+        // Create a new div to hold the input and remove button
+        const div = document.createElement('div');
+        div.classList.add('field-container');
+
+        // Create the input field
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'dynamicField[]';
+        input.placeholder = 'Enter value';
+
+        // Create the remove button
+        const removeButton = document.createElement('span');
+        removeButton.classList.add('remove-button');
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', function() {
+            removeField(div);
+        });
+
+        // Append the input and remove button to the div
+        div.appendChild(input);
+        div.appendChild(removeButton);
+
+        // Append the div to the field container
+        fieldContainer.appendChild(div);
+    }
+
+    function removeField(div) {
+        fieldContainer.removeChild(div);
+    }
+});
+    
+    
+    
+    </script>
+</body>
+</html>
