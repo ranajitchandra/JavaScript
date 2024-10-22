@@ -7,13 +7,24 @@
 //     console.log("odd")
 // }
 
+// Ternary ..................
+
+// let num = Number(prompt("enter number"));
+
+// num>0 ? console.log("Positive") :num<0 ? console.log("Nagetive") : console.log("Zero");
+
+
+
+
+
+
+// Loop....................
 
 // let cars = ["Saab", "Volvo", "BMW", "Saab", "Volvo", "BMW"];
 
 // for(i=0; i<cars.length; i++){
-//     console.log(cars[i])
+//     console.log(cars[i])    
 // }
-
 
 
 
@@ -52,10 +63,75 @@
 // }
 
 
+// let arrrr = [3,5,3,6,7,9];
+
+// arrrr.forEach(function frVal(val){
+//     console.log(val);
+// })
+
+
+// let arrr = ["hi", "hello", "hey", "excuse me"];
+
+// let af = (val) => {
+//     console.log(val)
+// }
+// arrr.forEach(af)
+
+
+
+
+
+// IIFE function.................(Func)(calling);
+
+// (function myNmae(msg){
+//     console.log(`Hi----- ${msg}`);
+// })("IFFE");
+
+
+
+
+
+
+
+// arrow function.................
+
 // let h =(a,b) =>{
 //     return a+b;
 // }
 // console.log(h(4,5))
+
+
+// let arw = (a)=>{
+//     console.log("Arrow");
+    
+// }
+// arw();
+
+// let arw2 = ()=>{
+//      return console.log("Hello");
+// }
+
+// function countvowels(str) {
+//     let count = 0;
+//     for(i of str){
+//         if(i === "a" || i === "e" || i === "i" || i === "o" || i === "u" || i === "A" || i === "E" || i === "I" || i === "O" || i === "U") {
+//             count +=1;
+//         }
+//     }
+//     return count;
+// }
+// countvowels("ashdhasdwuddwq");
+
+
+// const countvow = (str) => {
+//     let count = 0;
+//     for(i of str){
+//         if(i === "a" || i === "e" || i === "i" || i === "o" || i === "u" || i === "A" || i === "E" || i === "I" || i === "O" || i === "U") {
+//             count +=1;
+//         }
+//     }
+//     return count;
+// }
 
 
 // let getvowel = (a)=>{
@@ -71,7 +147,8 @@
 
 
 
-// for each loop automatic print value it is work with array 
+// for each loop automatic print value it is work with array .......
+
 // let arr = [120,222,53,40,85,21,60,34,110,50];
 
 // arr.forEach(function(val){
@@ -86,6 +163,20 @@
 //     console.log(`value ${val**2}`) // exponantioal
 //     console.log(`ddd ${val*val}`)
 // })
+
+
+// let nums = [10, 20, 30, 40];
+
+// nums.forEach((val,indx,arr)=>{
+//     arr[indx] = val + 5;
+//     console.log(`in___ ${arr[indx]}`);
+    
+    
+// })
+// console.log(nums);
+
+
+
 
 
 //callBack function
@@ -114,6 +205,8 @@
 //     return val*val
 // })
 // console.log(newArr)
+
+
 
 
 
@@ -147,18 +240,56 @@ let clkme = document.querySelector("#clkme");
 let mode = document.querySelector("#mode");
 let sw = 0;
 
-mode.addEventListener("click", ()=>{
+mode.addEventListener("click", (e)=>{
     if(sw == 0){
         document.querySelector("body").style.backgroundColor="red";
         mode.classList.add("btn")
         sw = 1
-        console.log(sw)
+        console.log(e.target.id)
+        console.log(e.target.value)
     }else{
         document.querySelector("body").style.backgroundColor="green";
         mode.classList.remove("btn")
         sw = 0
-        console.log(sw)
+        console.log(e.target.value)
     }
 
 })
+
+
+
+// it is nested, callBack hell
+function getData(id, nex){
+    setTimeout(()=>{
+        console.log("Data_ID ", id);
+        if(nex){
+            nex();
+        }
+    }, 1000)
+}
+
+getData(1, ()=>{
+    getData(2, ()=>{
+        getData(3, ()=>{
+            getData(4);
+        });
+    });
+});
+
+
+
+
+// promise
+
+let promise = new Promise((resolve, reject) =>{
+    console.log("Promise Print")
+})
+
+
+
+
+
+
+
+
 

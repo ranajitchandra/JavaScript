@@ -26,3 +26,7 @@ var b = document.querySelector("button");
         xhttp.send();
     }
     
+    let loader = document.querySelector(".loading");
+    window.addEventListener("load", ()=>{
+        loader.style.display="none";
+    })
