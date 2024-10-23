@@ -212,69 +212,69 @@
 
 // DOM
 
-let div = document.querySelector("#box");
-    div.style.backgroundColor="green";
-    div.style.fontSize="16px";
-    div.style.color="white";
+// let div = document.querySelector("#box");
+//     div.style.backgroundColor="green";
+//     div.style.fontSize="16px";
+//     div.style.color="white";
 
 
-let btn = document.createElement("button");
-    btn.innerText="create el btn";
+// let btn = document.createElement("button");
+//     btn.innerText="create el btn";
 
-    div.append(btn);
-    div.prepend(btn);
-    div.after(btn);
-    div.before(btn);
+//     div.append(btn);
+//     div.prepend(btn);
+//     div.after(btn);
+//     div.before(btn);
 
-div.classList.add("newclass");
-div.classList.remove("newclass");
-
-
-let clkme = document.querySelector("#clkme");
-
-    clkme.onclick = () =>{
-        console.log("click Func")
-    }
+// div.classList.add("newclass");
+// div.classList.remove("newclass");
 
 
-let mode = document.querySelector("#mode");
-let sw = 0;
+// let clkme = document.querySelector("#clkme");
 
-mode.addEventListener("click", (e)=>{
-    if(sw == 0){
-        document.querySelector("body").style.backgroundColor="red";
-        mode.classList.add("btn")
-        sw = 1
-        console.log(e.target.id)
-        console.log(e.target.value)
-    }else{
-        document.querySelector("body").style.backgroundColor="green";
-        mode.classList.remove("btn")
-        sw = 0
-        console.log(e.target.value)
-    }
+//     clkme.onclick = () =>{
+//         console.log("click Func")
+//     }
 
-})
+
+// let mode = document.querySelector("#mode");
+// let sw = 0;
+
+// mode.addEventListener("click", (e)=>{
+//     if(sw == 0){
+//         document.querySelector("body").style.backgroundColor="red";
+//         mode.classList.add("btn")
+//         sw = 1
+//         console.log(e.target.id)
+//         console.log(e.target.value)
+//     }else{
+//         document.querySelector("body").style.backgroundColor="green";
+//         mode.classList.remove("btn")
+//         sw = 0
+//         console.log(e.target.value)
+//     }
+
+// })
 
 
 
 // it is nested, callBack hell
-function getData(id, nex){
-    setTimeout(()=>{
-        console.log("Data_ID ", id);
-        if(nex){
-            nex();
-        }
-    }, 1000)
-}
+// function getData(id, nex){
+//     setTimeout(()=>{
+//         console.log("Data_ID ", id);
+//         if(nex){
+//             nex();
+//         }
+//     }, 1000)
+// }
 
-getData(1, ()=>{
-    getData(2, ()=>{
-        getData(3, ()=>{
-            getData(4);
-        });
-    });
-});
+// getData(1, ()=>{
+//     getData(2, ()=>{
+//         getData(3, ()=>{
+//             getData(4);
+//         });
+//     });
+// });
 
 
 
@@ -284,6 +284,69 @@ getData(1, ()=>{
 let promise = new Promise((resolve, reject) =>{
     console.log("Promise Print")
 })
+
+
+
+// XMLHttpRequest API ............
+// const getDataApi = (method, apiUrl,data) => {
+//     const xhr = new XMLHttpRequest();
+//     xhr.open(method, apiUrl);
+
+//     xhr.setRequestHeader("content-type", "application/json");
+
+//     xhr.onload = () => {
+//         console.log(JSON.parse(xhr.response));
+//     }
+
+//     xhr.onerror(()=>{
+//         console.log("Error is Here");
+//     })
+
+//     xhr.send(JSON.stringify(data));
+// }
+
+// const mkAPI = () => {
+//     getDataApi("GET", "https://jsonplaceholder.typicode.com/posts");
+
+// }
+
+// const sendData = () => {
+//     getDataApi("POST", "https://jsonplaceholder.typicode.com/posts",{
+//         title: 'foo',
+//         body: 'bar',
+//         userId: 1,
+//       });
+// }
+// mkAPI()
+// sendData()
+
+
+// fetch api..............
+
+
+fetch("https://jsonplaceholder.typicode.com/posts")
+.then((res)=>{
+    if(!res.ok){
+        const msg = `Error : ${res.status}`;
+        throw new Error (msg);
+    }
+    return res.json();
+})
+.then((res)=>{
+    console.log(res);
+})
+.catch((err)=>{
+    console.log(err);
+})
+
+
+
+
+
+
+
+
+
 
 
 
